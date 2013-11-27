@@ -5,7 +5,9 @@ python:
 install:
   - "python setup.py install"
   - "pip install pyyaml ua-parser"
-
+before_script:
+            
+            - mkdir -p shippable/testresults
 
 script:
-  - python -m unittest discover
+  - python -m unittest discover --with-xunit --xunit-file=shippable/testresults/nosetests.xml
